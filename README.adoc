@@ -1,0 +1,8 @@
+= Java Kafka Message Producer
+:toc:
+:sectnums:
+
+== Synopsis
+Creates a message, received via HTTP, using a reactive controller, on a topic in Kafka.
+
+The message is a SimpleMessage, containing an Id and an Address.
