@@ -29,4 +29,13 @@ public class MessageServiceKafka implements MessageService {
                 .build();
         streamBridge.send("addressHandler-out-0", messageToSend);
     }
+
+    @Override
+    public void send(String key, int value) {
+        Message<Integer> stockPriceMessage = MessageBuilder
+                .withPayload(value)
+                .setHeader(KafkaHeaders.KEY, key.getBytes(StandardCharsets.UTF_8))
+                .build();
+        streamBridge.send("stocks-out-0", stockPriceMessage);
+    }
 }
